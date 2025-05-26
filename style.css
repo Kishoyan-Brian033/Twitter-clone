@@ -7,92 +7,57 @@
      font-family: "Raleway", sans-serif;
 }
 body{
-    background-color: #c7bcbc96;
-}
-header{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    background-color: rgb(0, 183, 255);
-    padding: 20px;
+    background-color: #000;
     color: #fff;
-    font-size: 16px;
-}
-.search{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-}
 
-select{
-    width: 250px;
-    height: 35px;
-    border-radius: 5px;
 }
-.profile-background{
-    width: 100%;
-    height: 250px;
-    background-image: url(./image/background.jpeg);
-    background-position: center;
-    background-size: cover;
+h2{
+    font-size: 20px;
+    font-weight: 600;
 }
-.profile-content{
-    margin-top: -100px;
-    margin-left: 30px;
-    line-height: 40px;
-}
-
-.profile-content img{
-    width: 150px;
-    height: 150px;
-    border-radius: 100%;
-}
-
-.posts{
-    background-color: #fff;
-}
-.post-cards{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    
-}
-.card{
+.conatiner{
     display: flex;
     margin: 20px;
     gap: 20px;
-
+}
+.profile{
+    border: 2px solid #ada6a6;
+    border-radius: 5px;
+    border-bottom: none;
 }
 
-
-.card img{
-    width: 20%;
-    height: 100%;
-     border-radius: 5px;
-}
-.left .top{
-    display: flex;
-    align-items: center;
-    padding: 5px;
-    gap: 10px;
-}
-.top ion-icon{
-    font-size: 25px;
-    color: rgb(0, 162, 255);
-}
-
-.post-likes{
+.posts{
+    background-color: inherit;
     width: 100%;
-    display: flex;
-    gap: 40px;
-    margin: 20px;
-    align-items: center;
-    
+    height: 100vh;
+     border: 2px solid #ada6a6;
+    border-radius: 5px;
+    border-bottom: none;
+    padding: 20px;
 }
-.post-likes :nth-child(3){
-    color: rgb(231, 83, 83);
+.comments{
+    width: 100%;
+    height: 100vh;
+    background: inherit;
+     border: 2px solid #ada6a6;
+    border-radius: 5px;
+    border-bottom: none;
+    padding: 20px;
 }
+.top-profile img{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+.inner {
+    margin-top: -100px;
+    padding: 20px;
+    line-height: 30px;
 
-.post-likes ion-icon{
-    font-size: 25px;
+}
+.inner img{
+    width: 30%;
+    height: 30%;
+    border-radius: 100%;
 }
