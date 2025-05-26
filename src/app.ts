@@ -68,10 +68,10 @@
         }
 
        
-        async function initApp() {
+        async function loadWindow() {
             try {
                 const users = await fetchData<User[]>(usersUrl);
-                populateUserDropdown(users);
+                dropdownUser(users);
                 
                 if (users.length > 0) {
                     selectUser.value = users[0].id.toString();
@@ -83,7 +83,7 @@
             }
         }
 
-        function populateUserDropdown(users: User[]) {
+        function dropdownUser(users: User[]) {
             selectUser.innerHTML = '';
             
             users.forEach(user => {
@@ -107,7 +107,7 @@
                 
                 const posts = await fetchData<Post[]>(`${postsUrl}?userId=${userId}`);
                 currentPosts = posts;
-                renderPosts(posts);
+                displayPosts(posts);
                 postCountSpan.textContent = `(${posts.length})`;
                 
                 if (posts.length > 0) {
@@ -126,7 +126,7 @@
             userLocationElement.textContent = `${user.address.city}, ${user.address.street}`;
         }
 
-        function renderPosts(posts: Post[]) {
+        function displayPosts(posts: Post[]) {
             postsContainer.innerHTML = '';
             
             posts.forEach(post => {
@@ -160,7 +160,7 @@
                 commentsContainer.innerHTML = '<p>Loading comments...</p>';
                 const comments = await fetchData<Comment[]>(`${commentsUrl}?postId=${postId}`);
                 currentComments = comments;
-                renderComments(comments);
+                displayComments(comments);
                 commentCountSpan.textContent = `(${comments.length})`;
             } catch (error) {
                 console.error('Error loading comments:', error);
@@ -168,7 +168,7 @@
             }
         }
 
-        function renderComments(comments: Comment[]) {
+        function displayComments(comments: Comment[]) {
             commentsContainer.innerHTML = '';
             
             comments.forEach(comment => {
@@ -192,7 +192,7 @@
             });
         }
 
-        document.addEventListener('DOMContentLoaded', initApp);
+        document.addEventListener('DOMContentLoaded', loadWindow);
  
 
 

@@ -32,11 +32,11 @@ function fetchData(url) {
         return yield response.json();
     });
 }
-function initApp() {
+function loadWindow() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             const users = yield fetchData(usersUrl);
-            populateUserDropdown(users);
+            dropdownUser(users);
             if (users.length > 0) {
                 selectUser.value = users[0].id.toString();
                 yield loadUserData(parseInt(selectUser.value));
@@ -48,7 +48,7 @@ function initApp() {
         }
     });
 }
-function populateUserDropdown(users) {
+function dropdownUser(users) {
     selectUser.innerHTML = '';
     users.forEach(user => {
         const option = document.createElement('option');
@@ -69,7 +69,7 @@ function loadUserData(userId) {
             updateProfile(user);
             const posts = yield fetchData(`${postsUrl}?userId=${userId}`);
             currentPosts = posts;
-            renderPosts(posts);
+            displayPosts(posts);
             postCountSpan.textContent = `(${posts.length})`;
             if (posts.length > 0) {
                 yield loadPostComments(posts[0].id);
@@ -88,7 +88,7 @@ function updateProfile(user) {
     userBioElement.textContent = ((_a = user.company) === null || _a === void 0 ? void 0 : _a.catchPhrase) || 'No bio';
     userLocationElement.textContent = `${user.address.city}, ${user.address.street}`;
 }
-function renderPosts(posts) {
+function displayPosts(posts) {
     postsContainer.innerHTML = '';
     posts.forEach(post => {
         const postElement = document.createElement('div');
@@ -119,7 +119,7 @@ function loadPostComments(postId) {
             commentsContainer.innerHTML = '<p>Loading comments...</p>';
             const comments = yield fetchData(`${commentsUrl}?postId=${postId}`);
             currentComments = comments;
-            renderComments(comments);
+            displayComments(comments);
             commentCountSpan.textContent = `(${comments.length})`;
         }
         catch (error) {
@@ -128,7 +128,7 @@ function loadPostComments(postId) {
         }
     });
 }
-function renderComments(comments) {
+function displayComments(comments) {
     commentsContainer.innerHTML = '';
     comments.forEach(comment => {
         const commentElement = document.createElement('div');
@@ -150,4 +150,4 @@ function renderComments(comments) {
         commentsContainer.appendChild(commentElement);
     });
 }
-document.addEventListener('DOMContentLoaded', initApp);
+document.addEventListener('DOMContentLoaded', loadWindow);
