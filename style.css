@@ -15,16 +15,25 @@ body{
     font-size: 30px;
     font-weight: 700;
     margin: 40px;
-}
-.conatiner{
     display: flex;
-    margin: 20px;
-    gap: 20px;
+    justify-content: space-around;
+}
+
+.btn{
+    font-size: 18px;
+    font-weight: 600;
+    padding: 8px 20px;
+    border-radius: 5px;
+}
+  .container {
+   display: flex;
+   padding: 20px;
+   gap: 20px;
 }
 .profile{
     border: 2px solid #ada6a6;
     border-radius: 5px;
-    height: 100vh;
+    height: 100%;
 }
 
 .posts{
@@ -68,10 +77,13 @@ body{
     padding: 20px;
     font-size: 20px;
     font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     
 }
 .profile-top select{
-    padding: 10px 60px;
+    padding: 10px 25px;
     border-radius: 5px;
 }
 .post-card{
@@ -100,4 +112,43 @@ body{
 
 .post-card .card-bottom :nth-child(3){
     color: red;
+}
+a{
+    color:rgb(0, 153, 255)
+}
+
+
+
+.dark{
+    background-color: #fff;
+    color: #000;
+}
+
+@media screen and (max-width:768px) {
+     .container {
+   display: flex;
+   flex-direction: column;
+   padding: 20px;
+   gap: 20px;
+}
+}
+@media  screen and (max-width:600px) {
+   .container {
+    display: flex;
+    padding: 20px;
+    gap: 20px;
+    font-size: 16px;
+}
+.header{
+    font-size: 16px;
+}
+}
+
+@media screen and (max-width:345px) {
+    label{
+        display: none;
+    }
+    select{
+        padding: 3px 15px;
+    }
 }
